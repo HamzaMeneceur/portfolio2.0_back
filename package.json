@@ -1,0 +1,27 @@
+{
+  "name": "portfolio2.0_back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HamzaMeneceur/portfolio2.0_back.git"
+  },
+  "author": "HamzaMeneceur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HamzaMeneceur/portfolio2.0_back/issues"
+  },
+  "homepage": "https://github.com/HamzaMeneceur/portfolio2.0_back#readme",
+  "devDependencies": {
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
