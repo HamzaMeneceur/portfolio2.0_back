@@ -1,13 +1,13 @@
-"use strict";
-require('dotenv').config();
-const express = require('express');
+import 'dotenv/config';
+import express from 'express';
 const app = express();
 const PORT = process.env.PORT;
-const mainRouter = require('./app/routers');
+import router from './app/routers/index.js';
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use('/v1/'), mainRouter;
-app.use('/v1/api', mainRouter);
+console.log('1');
+app.use('/v1/', router);
+app.use('/v1/api', router);
 app.listen(PORT, () => {
     console.log(`here : http://localhost:${PORT}`);
 });
