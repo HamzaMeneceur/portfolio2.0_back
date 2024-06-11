@@ -24,6 +24,7 @@ CREATE TABLE "social_network" (
 CREATE TABLE "project" (
     "id" INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     "name" TEXT NOT NULL,
+    "link" TEXT NOT NULL,
     "project_date" TIMESTAMPTZ DEFAULT now(),
     "type_of_project" top_enum NOT NULL,
     "user_email" TEXT NOT NULL REFERENCES "user"("email") ON DELETE CASCADE,
