@@ -20,5 +20,19 @@ CHECK(
 ALTER TABLE "user"
 ALTER COLUMN "password" TYPE "valid_pass";
 
+CREATE DOMAIN "valid_link" AS TEXT
+CHECK(
+    value ~ 'https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)'
+);
+
+ALTER TABLE "project"
+ALTER COLUMN "link" TYPE "valid_link";
+
+ALTER TABLE "social_network"
+ALTER COLUMN "link" TYPE "valid_link";
+
 COMMIT;
+
+
+
 
