@@ -1,10 +1,7 @@
-/**
- * 
- * utilisation de debug ? 
- * fs pour la sauvegarde en dur 
- * ! ne pas oublié d'ajouter au gitignore !!
- *  utilisation de bunyan ou winston ?
- */
+import debug from "debug";
 
+debug("error:API");
 
-// switch case des code d'état http 
+import logger from "./logger.js";
+
+import APIError from "./APIError.js";

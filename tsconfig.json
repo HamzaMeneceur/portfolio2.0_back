@@ -107,5 +107,5 @@
     "skipLibCheck": true                                 /* Skip type checking all .d.ts files. */
   },
     "include": ["src/**/*", "src/env.d.ts","src/app/services/validation/schema.d.ts"],                 /* Inclure tous les fichiers TypeScript dans src et index.ts à la racine. */
-    "exclude": ["node_modules",".gitignore",".env","package-lock.json","package.json","script"]             /* Exclure le répertoire node_modules. */
+    "exclude": ["node_modules",".gitignore",".env","package-lock.json","package.json","script", "logs"]             /* Exclure le répertoire node_modules. */
 }
