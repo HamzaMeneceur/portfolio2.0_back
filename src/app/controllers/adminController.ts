@@ -1,5 +1,6 @@
 import adminDataMapper from "../dataMappers/adminDataMapper.js";
 import { NextFunction,Request,Response } from "express";
+
 export default {
     async haveUser(req:Request,res: Response,next: NextFunction){
         try{
@@ -10,5 +11,14 @@ export default {
             console.log(err)
         }
 
+    },
+    async signup(req:Request,res: Response,next: NextFunction){
+        try{
+            const user = req.body;
+            
+        }
+        catch(err){
+            console.log(err)
+        }
     }
 }

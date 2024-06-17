@@ -8,5 +8,13 @@ export default {
         catch (err) {
             console.log(err);
         }
+    },
+    async signup(req, res, next) {
+        try {
+            const user = req.body;
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 };
