@@ -1,8 +1,9 @@
 import {Router} from 'express';
 import {limiter} from '../services/limiter.js';
 import adminController from '../controllers/adminController.js';
-const router = Router();
+const adminRouter = Router();
 // router.get("/auth", limiter, adminController.authUser)
-router.get("/user", adminController.haveUser);
-router.get("/signup", adminController.signup);
-export default router;
+adminRouter.get("/user", adminController.haveUser);
+adminRouter.get("/verify-email", adminController.verifyUser)
+adminRouter.post("/signup", adminController.signup);
+export default adminRouter;
