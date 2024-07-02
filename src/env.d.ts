@@ -7,7 +7,9 @@ declare namespace NodeJS {
         PGUSER: string;
         PGPASSWORD: string;
         BCRYPT_SALT: number;
-        MAIL_NOREPLY: string;
-        MAIL_NOREPLY_PASS: string;
+        SMTP_USER: string;
+        SMTP_PASS: string;
+        SMTP_HOST: string;
+        SMTP_PORT: number;
     }
 }

@@ -18,10 +18,10 @@ export default {
         const result = await adminDataMapper.ifUser(email);
         console.log('controller', result);
         if (!result.exists) {
-            res.status(200).json('not on bdd');
+            res.status(200).json('Email déjà enregistré');
         }
         else {
-            error = new APIError('Email présent en base de données', 500);
+            error = new APIError('Email déjà présente en base de données', 409);
             next(error);
         }
     },
@@ -31,7 +31,7 @@ export default {
         if (user.password && user.email) {
             user.password = await encodePassword(user.password);
             const hashUser = user;
-            const { error, result } = await adminDataMapper.addUser(hashUser);
+            const result = await adminDataMapper.addUser(hashUser);
             console.log(user);
             res.status(201).json(result);
         }

@@ -1,5 +1,4 @@
-import nodemailer from 'nodemailer'
-
+import nodemailer from 'nodemailer';
 export const transporter = nodemailer.createTransport({
     host: process.env.SMTP_HOST,
     port: process.env.SMTP_PORT,
@@ -8,6 +7,5 @@ export const transporter = nodemailer.createTransport({
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS
     }
-})
-
-console.log('ici ', process.env.SMTP_HOST)
+});
+console.log('ici ', process.env.SMTP_HOST);
