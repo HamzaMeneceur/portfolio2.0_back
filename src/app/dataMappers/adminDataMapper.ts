@@ -1,5 +1,4 @@
 import client from "../services/pg.js";
-import APIError from "../services/error/APIError.js";
 export default {
     async getUser(){
         const sqlQuerry = `SELECT * FROM "user";`;

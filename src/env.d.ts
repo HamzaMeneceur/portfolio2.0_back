@@ -7,5 +7,7 @@ declare namespace NodeJS {
         PGUSER: string;
         PGPASSWORD: string;
         BCRYPT_SALT: number;
+        MAIL_NOREPLY: string;
+        MAIL_NOREPLY_PASS: string;
     }
 }

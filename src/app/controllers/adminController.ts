@@ -36,7 +36,7 @@ export default {
             if(user.password && user.email){
                 user.password = await encodePassword(user.password);
                 const hashUser = user
-                const {error,result} = await adminDataMapper.addUser(hashUser);
+                const result = await adminDataMapper.addUser(hashUser);
                 console.log(user)
                 res.status(201).json(result); 
             } else {
