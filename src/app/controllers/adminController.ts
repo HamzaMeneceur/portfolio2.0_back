@@ -5,6 +5,16 @@ import APIError from "../services/error/APIError.js";
 
 
 export default {
+    async renderSigninPage(req:Request,res: Response,next: NextFunction){
+        try{
+            console.log('je suis pret a envoyer le rendu')
+            res.render('adminAuth/signin')
+        }
+        catch(err){
+            console.log('je suis la')
+            console.log(err)
+        }
+    },
     async haveUser(req:Request,res: Response,next: NextFunction){
         try{
             const result :any[] = await adminDataMapper.getUser()

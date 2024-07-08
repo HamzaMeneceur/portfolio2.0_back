@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf ./dist",
-    "build": "npm run clean && tsc",
+    "build": "npm run clean && tsc && npm run copy",
+    "copy": "cp -r src/app/views dist/app/ && cp -r src/public dist/",
     "dev": "DEBUG=error node index.js",
     "start:api": "node ./dist/app/apiServer.js",
     "start:admin": "node ./dist/app/adminServer.js",
@@ -35,11 +36,13 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@types/ejs": "^3.1.5",
     "@types/nodemailer": "^6.4.15",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "debug": "^4.3.5",
     "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
     "express": "^4.19.2",
     "express-rate-limit": "^7.3.1",
     "helmet": "^7.1.0",

@@ -7,6 +7,7 @@ export default {
         return result.rows
     },
     async ifUser(user: any){
+        // Elle permet de vérifier l'existence d'un utilisateur en BDD.
         let result;
         let error;
         try{
