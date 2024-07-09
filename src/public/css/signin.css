@@ -1,3 +1,32 @@
-body{
+#content-title-signin{
+    background-color: blue;
+    margin: 100px 0 20px 0;
+    font-size: xx-large;
+    text-transform: uppercase;
+    text-align: center;
+}
+#content-form-signin{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
     background-color: red;
+    
+}
+#content-input-signin{
+    display: flex;
+    margin: auto;
+    background-color: aqua;
+    height: 200px;
+    width: 70%;
+}
+#content-in-input-signin{
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    margin: auto;
+    gap: 10px;
+}
+.in-input{
+    display: flex;
+    flex-direction: column;
 }
