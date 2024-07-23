@@ -11,11 +11,15 @@
     <title>Dashboard Administratif</title>
 </head>
 <body>
-    
+    <header>
+        <div id="title-container-top">
+            <h1>Bienvenue sur le Portail d'Administration</h1>
+        </div>
+    </header>
 
 <main >
     <div id="content-title-signin">
-        <h1>Admin</h1>
+        <p>Connectez-vous pour accéder à votre tableau de bord</p>
     </div>
     
 <form action="" method="post" id="content-form-signin">
@@ -30,14 +34,20 @@
                 <input type="password" id="password" name="password" placeholder="********">
             </div>
  
-            <input type="button" value="Mot de passe oublié ?">
+            <input type="button" value="Mot de passe oublié ?" id="form-forget">
         </div>
     </div>
-<input type="submit" value="Entrer">
+    <div id="btn-submit">
+        <input type="submit" value="Entrer" id="form-submit">
+    </div>
 </form>
 </main>
 <footer>
-    
+    <div id="footer-info">
+        <p>2024 Hamza Meneceur <span>Développeur web freelance</span>. Tous drois réservés.</p>
+        <p><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+        <p>Besoin d'aide ? <a href="#mailto:hamza.meneceur.dev@gmail.com">Contactez moi</a></p>
+    </div>
 </footer>
 </body>
 </html>
