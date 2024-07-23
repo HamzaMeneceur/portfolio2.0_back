@@ -2,10 +2,17 @@ body{
     background: #F7971E;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: 100vh;
+}
+#header-policy{
+    padding-left: 5px;
+    display: flex;
+    align-items: center;
+    background-color: red;
+    height: 50px;
 }
 #footer-info{
     background: rgba(255, 255, 255, 0.3);
@@ -15,4 +22,23 @@ body{
     justify-content: center;
     gap: 3px;
     height: 80px;
+}
+#main-section{
+    background: rgba(255, 255, 255, 0.8)    ;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.policy-chap p {
+    margin: 10px 0;
+}
+ul,ol{
+    padding-left: 40px;
+    list-style-type: disc;
+    margin: 1em 0;
+}
+ol{
+    list-style-type: decimal;
 }
