@@ -28,6 +28,8 @@ font-size: x-large;
     
 }
 #content-input-signin{
+    box-shadow: 10px 5px 5px rgba(19, 19, 19, 0.5);
+
     display: flex;
     margin: auto;
     border-radius: 5px;
