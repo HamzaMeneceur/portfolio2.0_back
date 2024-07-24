@@ -8,10 +8,13 @@ body{
     height: 100vh;
 }
 #header-policy{
-    padding-left: 5px;
+    width: 90%;
+    margin: auto;
     display: flex;
     align-items: center;
-    background-color: red;
+    color: #2C3E50;
+    font-size: x-large;
+    letter-spacing: 0.1em;
     height: 50px;
 }
 #footer-info{
@@ -24,15 +27,40 @@ body{
     height: 80px;
 }
 #main-section{
-    background: rgba(255, 255, 255, 0.8)    ;
-    width: 80%;
+    background: rgba(255, 255, 255, 0.9)    ;
+    width: 90%;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px rgba(19, 19, 19, 0.5);
+}
+.policy-top{
+    display: flex;
+    align-self: center;
+    margin-top: 1em;
+    width: 95%;
 }
 .policy-chap p {
     margin: 10px 0;
+}
+.policy-bot{
+    width: 95%;
+}
+.policy-end{
+    font-size: 0.9em;
+    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 5px;
+    align-self: center;
+}
+hr{
+    margin: auto;
+    width: 70%;
+}
+b{
+    font-weight: bold;
 }
 ul,ol{
     padding-left: 40px;
@@ -40,5 +68,21 @@ ul,ol{
     margin: 1em 0;
 }
 ol{
-    list-style-type: decimal;
+    list-style-type: none;
+}
+
+@media (max-width: 700px){
+    #main-section{
+        margin-bottom: 15px;
+    }
+    .policy-end{
+        width: 95%;
+        font-size: small;
+    }
+}
+@media (max-width: 450px){
+    .policy-end{
+        width: 90%;
+        font-size: 0.8em;
+    }
 }
