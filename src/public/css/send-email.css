@@ -35,6 +35,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap: 50px;
     align-items: center;
     margin: auto;
     background-color: rgba(249, 249, 249, 0.8);
@@ -43,9 +44,13 @@ body{
     height: 300px;
     border-radius: 10px;
 }
+#form-in{
+    display: flex;
+    flex-direction: column;
+    height: 150px;
+}
 #form-content h2{
     letter-spacing: 0.1em;
-    margin-bottom: 20px;
     color: #2C3E50;
     font-size: 1.2rem;
     font-weight: bold;
@@ -76,6 +81,12 @@ body{
 .submit-e{
     width: 120px;
     margin: auto;
+}
+input[type=email]{
+    border-radius: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    height: 20px;
 }
 @media (max-width: 600px){
     #form-content{
