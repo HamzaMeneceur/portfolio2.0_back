@@ -1,0 +1,90 @@
+body{
+    background: #F7971E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#img-top{
+    justify-self: flex-start;
+}
+#title-container-top{
+    display: flex;
+    color: #2C3E50;
+    background: rgba(255, 255, 255, 0.3);
+    height: 100px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: x-large;
+}
+#title-container-top h1{
+    margin-right: 10px;
+}
+#footer-info{
+    background: rgba(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    height: 80px;
+}
+#form-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: rgba(249, 249, 249, 0.8);
+    box-shadow: 10px 5px 5px rgba(19, 19, 19, 0.5);
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+}
+#form-content h2{
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    color: #2C3E50;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+.ca-input{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+#ca-submit{
+    border: 2px solid #34495E;
+    color: #2C3E50;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+#ca-submit:hover{
+    background-color: #2C3E50;
+    color: white;
+}
+#ca-submit:active{
+    background-color: #34495E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+.submit-e{
+    width: 120px;
+    margin: auto;
+}
+@media (max-width: 600px){
+    #form-content{
+        width: 300px;
+    }
+    #form-content h2{
+        font-size: 0.9em;
+    }
+    #form-content label{
+        font-size: 0.8em;
+    }
+}

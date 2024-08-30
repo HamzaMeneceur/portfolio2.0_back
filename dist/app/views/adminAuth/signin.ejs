@@ -6,26 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/signin.css" rel="stylesheet">
     <title>Dashboard Administratif</title>
 </head>
 <body>
+    <header>
+        <div id="title-container-top">
+            <h1>Bienvenue sur le Portail d'Administration</h1>
+        </div>
+    </header>
+
+<main >
+    <div id="content-title-signin">
+        <p>Connectez-vous pour accéder à votre tableau de bord</p>
+    </div>
     
-
-<main>
-    <h1>Admin</h1>
-<form action="" method="post">
-<label for="email">Email</label>
-<input type="email" id="email" name="email" placeholder="email@admin.com">
-
-<label for="password">Mot de passe</label>
-<input type="password" id="password" name="password" placeholder="********">
-<input type="button" value="Mot de passe oublié ?">
-<input type="submit" value="Entrer">
+<form action="/signin-verify" method="post" id="content-form-signin">
+    <div id="content-input-signin">
+        <div id="content-in-input-signin">
+            <div class="in-input">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="email@admin.com">
+            </div>
+            <div class="in-input">
+                <label for="password">Mot de passe</label>
+                <input type="password" id="password" name="password" placeholder="********">
+            </div>
+ 
+            <input type="button" value="Mot de passe oublié ?" id="form-forget">
+        </div>
+    </div>
+    <div id="btn-submit">
+        <input type="submit" value="Entrer" id="form-submit">
+    </div>
 </form>
 </main>
 <footer>
-    
+    <div id="footer-info">
+        <p>2024 Hamza Meneceur <span>Développeur web freelance</span>. Tous drois réservés.</p>
+        <p><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
+        <p>Besoin d'aide ? <a href="#mailto:hamza.meneceur.dev@gmail.com">Contactez moi</a></p>
+    </div>
 </footer>
 </body>
 </html>

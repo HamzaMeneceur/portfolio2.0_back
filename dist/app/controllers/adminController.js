@@ -1,5 +1,6 @@
 import adminDataMapper from "../dataMappers/adminDataMapper.js";
 import { encodePassword } from "../services/security.js";
+import errorHandler from "../services/error/errorHandler.js";
 import APIError from "../services/error/APIError.js";
 export default {
     async renderSigninPage(req, res, next) {
@@ -28,26 +29,32 @@ export default {
         const result = await adminDataMapper.ifUser(email);
         console.log('controller', result);
         if (!result.exists) {
-            res.status(200).json('Email déjà enregistré');
+            console.log("C'est ok");
         }
         else {
             error = new APIError('Email déjà présente en base de données', 409);
             next(error);
         }
     },
-    async signup(req, res, next) {
+    async signup(req, res) {
         let error;
+        console.log("APIerror => ", errorHandler);
         const user = req.body;
+        console.log(user);
         if (user.password && user.email) {
             user.password = await encodePassword(user.password);
             const hashUser = user;
             const result = await adminDataMapper.addUser(hashUser);
             console.log(user);
-            res.status(201).json(result);
+            res.status(201).redirect('/v1/admin/s/');
         }
         else {
             error = new APIError('Donnée manquante en entrer', 500);
-            next(error);
+            errorHandler;
         }
+    },
+    async renderSignupPage(req, res, next) {
+        let error;
+        res.status(200).render('adminAuth/signup');
     }
 };

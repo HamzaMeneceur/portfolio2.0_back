@@ -11,7 +11,7 @@
     "copy": "cp -r src/app/views dist/app/ && cp -r src/public dist/",
     "dev": "DEBUG=error node index.js",
     "start:api": "node ./dist/app/apiServer.js",
-    "start:admin": "node ./dist/app/adminServer.js",
+    "start:admin": "npm run build && node ./dist/app/adminServer.js",
     "start:all": "npm-run-all -p start:api start:admin"
   },
   "repository": {
