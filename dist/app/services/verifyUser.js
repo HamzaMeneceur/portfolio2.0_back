@@ -5,9 +5,12 @@ export async function verifyUser(req, res, next) {
     const email = req.body;
     const result = await adminDataMapper.ifUser(email);
     console.log('controller', result);
-    if (!result.exists) {
-        error = new APIError('Email déjà présente en base de données', 409);
-        next(error);
+    if (result) {
+        error = new APIError("L'email que vous avez entré est déjà utilisé.", 409);
+        delete req.session.error;
+        req.session.error = error.message;
+        console.log("Dans le service => ", req.session.error);
+        res.status(409).redirect("/v1/admin/s/signup");
     }
     else {
         next();

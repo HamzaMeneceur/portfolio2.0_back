@@ -23,6 +23,13 @@
             <h2>Créer votre compte administrateur</h2>
             <form action="/v1/admin/s/signup-post" method="post">
                 <div class="ca-input">
+                    <div class="alert-msg">
+                        <p><% 
+                        if(msg) { %>
+                            <%= msg %>
+                        <%}%>
+                        </p>
+                    </div>
                     <label for="email">Votre email</label>
                     <input type="email" name="email" id="email" placeholder="email@admin.com">
                 </div>

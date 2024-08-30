@@ -77,6 +77,12 @@ body{
     width: 120px;
     margin: auto;
 }
+.alert-msg{
+    padding: 10px;
+    border-radius: 5px;
+    background-color: red;
+    font-weight: bold;
+}
 @media (max-width: 600px){
     #form-content{
         width: 300px;

@@ -19,7 +19,7 @@ export default {
             const values = [user.email];
             result = await client.query(sqlQuery, values);
             console.log(result.rows[0]);
-            return result = result.rows[0];
+            return result = result.rows[0].exists;
         }
         catch (err) {
             return error = err;
@@ -34,7 +34,6 @@ export default {
                             VALUES ($1,$2)`;
             const values = [user.email, user.password];
             result = await client.query(sqlQuery, values);
-            console.log(result);
             return result;
         }
         catch (err) {

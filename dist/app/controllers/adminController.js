@@ -1,6 +1,5 @@
 import adminDataMapper from "../dataMappers/adminDataMapper.js";
 import { encodePassword } from "../services/security.js";
-import errorHandler from "../services/error/errorHandler.js";
 import APIError from "../services/error/APIError.js";
 export default {
     async renderSigninPage(req, res, next) {
@@ -36,25 +35,26 @@ export default {
             next(error);
         }
     },
-    async signup(req, res) {
+    async signup(req, res, next) {
         let error;
-        console.log("APIerror => ", errorHandler);
         const user = req.body;
         console.log(user);
         if (user.password && user.email) {
             user.password = await encodePassword(user.password);
             const hashUser = user;
             const result = await adminDataMapper.addUser(hashUser);
-            console.log(user);
             res.status(201).redirect('/v1/admin/s/');
         }
         else {
             error = new APIError('Donnée manquante en entrer', 500);
-            errorHandler;
+            next(error);
         }
     },
     async renderSignupPage(req, res, next) {
         let error;
-        res.status(200).render('adminAuth/signup');
+        const errorMessage = [req.session.error];
+        console.log("Le message d'erreur et ", errorMessage.length);
+        console.log(req.session.error);
+        res.status(200).render('adminAuth/signup', { msg: errorMessage[0] });
     }
 };
