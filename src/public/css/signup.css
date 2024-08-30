@@ -3,9 +3,23 @@ body{
     background: -webkit-linear-gradient(to right, #FFD200, #F7971E);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFD200, #F7971E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "header header"
+    "main main"
+    "footer footer"
+    ;
+}
+header{
+    grid-area: header;
+}
+main{
+    grid-area: main;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+}
+footer{
+    grid-area: footer;
 }
 #img-top{
     justify-self: flex-start;
@@ -80,8 +94,9 @@ body{
 .alert-msg{
     padding: 10px;
     border-radius: 5px;
+    margin-bottom: 5px;
     background-color: red;
-    font-weight: bold;
+    font-weight: 500;
 }
 @media (max-width: 600px){
     #form-content{
