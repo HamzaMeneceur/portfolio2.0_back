@@ -6,7 +6,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link href="/css/reset.css" rel="stylesheet">
-    <link href="/css/signup.css" rel="stylesheet">
+    <link href="/css/auth.css" rel="stylesheet">
     <title>Créer un compte administrateur</title>
 </head>
 <body>
@@ -39,8 +39,8 @@
                     <input type="password" name="password" id="password" placeholder="******">
                 </div>
                 <div class="ca-input">
-                    <label for="confirm-password">Confirmer mot de passe</label>
-                    <input type="password" name="password" id="password" placeholder="******">
+                    <label for="confirm">Confirmer mot de passe</label>
+                    <input type="password" name="confirm" id="confirm" placeholder="******">
                 </div>
                 <div class="ca-input submit-e">
                     <input type="submit" value="Entrer" id="ca-submit">
@@ -48,12 +48,4 @@
             </form>
         </div>
     </main>
-    <footer>
-        <div id="footer-info">
-            <p>2024 Hamza Meneceur <span>Développeur web freelance</span>. Tous drois réservés.</p>
-            <p><a href="#">Politique de confidentialité</a> | <a href="#">Conditions d'utilisation</a></p>
-            <p>Besoin d'aide ? <a href="#mailto:hamza.meneceur.dev@gmail.com">Contactez moi</a></p>
-        </div>
-    </footer>
-</body>
-</html>
+    <%- include('/partials/footer') %>

@@ -41,16 +41,27 @@ export default {
         }
     },
     async signup(req:Request,res: Response, next: NextFunction){
-            let error;
+            const error = {
+                message : 'Le mot de passe ne correspond pas'
+            };
             const user = req.body
-            console.log(user)
-            if(user.password && user.email){
-                user.password = await encodePassword(user.password);
-                const hashUser = user
-                const result = await adminDataMapper.addUser(hashUser);
-                res.status(201).redirect('/v1/admin/s/')
+            for(const userIn in user){
+                console.log(`Le conteneur est ${userIn} le contenu ${user[userIn]}`)
+            }
+            if(user.password !== user.confirm){
+                delete req.session.error
+                req.session.error = error.message
+                console.log('Je suis au premier if ', req.session.error)
+                res.status(406).redirect('/v1/admin/s/signup')
+                if(user.password === user.confirm && user.email){
+                    user.password = await encodePassword(user.password);
+                    const hashUser = user
+                    const result = await adminDataMapper.addUser(hashUser);
+                    res.status(201).redirect('/v1/admin/s/')
+            }
+
             } else {
-                error = new APIError('Donnée manquante en entrer', 500)
+                const alert = new APIError('Donnée manquante en entrer', 500)
                 next(error)
             }
             

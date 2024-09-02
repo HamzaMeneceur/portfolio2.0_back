@@ -109,3 +109,44 @@ footer{
         font-size: 0.8em;
     }
 }
+
+/* 
+Les figures de styles suivante sont pour le signin
+*/
+
+#btn-submit{
+    display: flex;
+    justify-content: center;
+}
+#form-submit{
+    border: 2px solid #34495E;
+    color: #2C3E50;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+#form-forget{
+    background-color: white;
+    border: 1px solid #34495E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, color 0.3s;
+}
+#form-forget:hover{
+    background-color: #2C3E50;
+    color: white;  
+}
+#form-forget:active{
+    background-color: #34495E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+#form-submit:hover{
+    background-color: #2C3E50;
+    color: white;
+}
+#form-submit:active{
+    background-color: #34495E;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
