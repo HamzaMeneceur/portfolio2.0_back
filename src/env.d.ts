@@ -12,5 +12,6 @@ declare namespace NodeJS {
         SMTP_HOST: string;
         SMTP_PORT: number;
         NODE_ENV: string;
+        TOKEN_SECRET: string
     }
 }
