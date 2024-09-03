@@ -9,4 +9,6 @@ adminRouter.get("/project", adminController.renderProject);
 adminRouter.post("/signin-post", bodyProtect, adminController.haveUser);
 adminRouter.get("/signup", adminController.renderSignupPage);
 adminRouter.post("/signup-post", bodyProtect, verifyUser, adminController.signup);
+adminRouter.get("/privacypolicy", adminController.renderPrivacyPolicy);
+adminRouter.get("/termsofuse", adminController.renderTermsOfUse);
 export default adminRouter;

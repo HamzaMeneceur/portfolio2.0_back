@@ -1,8 +1,11 @@
 import client from "../services/pg.js";
 export default {
-    async getUser(){
-        const sqlQuerry = `SELECT * FROM "user";`;
-        const result= await client.query(sqlQuerry);
+    async authUser(email: string, password: string){
+        const sqlQuerry = `
+                            SELECT * FROM "user"
+                            WHERE "email" = $1 AND "password" = $2;`;
+        const data = [email, password]
+        const result= await client.query(sqlQuerry, data);
         console.log("i'm here")
         return result.rows
     },

@@ -1,5 +1,6 @@
 import express from 'express';
 import app from '../index.js';
+import adminController from './controllers/adminController.js';
 import router from './routers/index.js';
 import session from 'express-session';
 const ADMIN_PORT = process.env.ADMIN_PORT;
@@ -13,6 +14,7 @@ app.use(session({
     cookie: { secure: false }
 }));
 app.use('/v1/admin', router);
+app.use("/*", adminController.renderNotFound);
 app.listen(ADMIN_PORT, () => {
     console.log(`here : http://localhost:${ADMIN_PORT}/v1/admin/s`);
 });

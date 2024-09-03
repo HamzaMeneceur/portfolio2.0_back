@@ -5,6 +5,22 @@ import APIError from "../services/error/APIError.js";
 
 
 export default {
+    async renderPrivacyPolicy(req: Request,res: Response,next: NextFunction){
+        try{
+            res.status(200).render('legal/privacyPolicy');
+        }
+        catch(err){
+            console.log(err)
+        }
+    },
+    async renderTermsOfUse(req: Request,res: Response,next: NextFunction){
+        try{
+            res.status(200).render('legal/termsOfUse');
+        }
+        catch(err){
+            console.log(err)
+        }
+    },
     async renderSigninPage(req:Request,res: Response,next: NextFunction){
         try{
             res.status(200).render('adminAuth/signin')
@@ -21,29 +37,24 @@ export default {
             console.log(err)
         }
     },
-    async haveUser(req:Request,res: Response,next: NextFunction){
+    async renderNotFound(req: Request,res: Response,next: NextFunction){
         try{
-            const result :any[] = await adminDataMapper.getUser()
+            res.status(404).send("404 not found")
+        }
+        catch(err){
+            console.log(err)
+        }
+    },
+    async authUser(req:Request,res: Response,next: NextFunction){
+        try{
+            const {email, password} = req.body
+            const result :any[] = await adminDataMapper.authUser(email, password)
             res.status(200).json(result)
         }
         catch(err){
             console.log(err)
         }
 
-    },
-    // A supprimer ??
-    async verifyUser(req:Request,res: Response,next: NextFunction){
-        let error;
-        const email = req.body
-        const result = await adminDataMapper.ifUser(email);
-        console.log('controller', result)
-        if(!result.exists){
-            console.log("C'est ok") 
-        }
-        else {
-            error = new APIError('Email déjà présente en base de données', 409);
-            next(error)
-        }
     },
     async signup(req:Request,res: Response, next: NextFunction){
             const error = {
@@ -56,7 +67,6 @@ export default {
             if(user.password !== user.confirm){
                 delete req.session.error
                 req.session.error = error.message
-                console.log('Je suis au premier if ', req.session.error)
                 res.status(406).redirect('/v1/admin/s/signup')
                 if(user.password === user.confirm && user.email){
                     user.password = await encodePassword(user.password);
