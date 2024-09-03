@@ -8,18 +8,23 @@ import APIError from "../services/error/APIError.js";
 export default {
     async renderSigninPage(req:Request,res: Response,next: NextFunction){
         try{
-            console.log('je suis pret a envoyer le rendu')
-            res.render('adminAuth/signin')
+            res.status(200).render('adminAuth/signin')
         }
         catch(err){
-            console.log('je suis la')
+            console.log(err)
+        }
+    },
+    async renderProject(req: Request,res: Response,next: NextFunction){
+        try{
+            res.status(200).render('gestion/project')
+        }
+        catch(err){
             console.log(err)
         }
     },
     async haveUser(req:Request,res: Response,next: NextFunction){
         try{
             const result :any[] = await adminDataMapper.getUser()
-            console.log('i here')
             res.status(200).json(result)
         }
         catch(err){
@@ -27,6 +32,7 @@ export default {
         }
 
     },
+    // A supprimer ??
     async verifyUser(req:Request,res: Response,next: NextFunction){
         let error;
         const email = req.body
@@ -56,7 +62,7 @@ export default {
                 if(user.password === user.confirm && user.email){
                     user.password = await encodePassword(user.password);
                     const hashUser = user
-                    const result = await adminDataMapper.addUser(hashUser);
+                    await adminDataMapper.addUser(hashUser);
                     res.status(201).redirect('/v1/admin/s/')
             }
 
@@ -71,8 +77,6 @@ export default {
     async renderSignupPage(req:Request,res: Response,next: NextFunction){
             let error;
                 const errorMessage = [req.session.error]
-                console.log("Le message d'erreur et ", errorMessage.length)
-                console.log(req.session.error)
                 res.status(200).render('adminAuth/signup', {msg : errorMessage[0]})
 
     }

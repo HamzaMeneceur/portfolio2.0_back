@@ -5,17 +5,25 @@ export default {
     async renderSigninPage(req, res, next) {
         try {
             console.log('je suis pret a envoyer le rendu');
-            res.render('adminAuth/signin');
+            res.status(200).render('adminAuth/signin');
         }
         catch (err) {
             console.log('je suis la');
             console.log(err);
         }
     },
+    async renderProject(req, res, next) {
+        try {
+            console.log('Je suis bien arriver');
+            res.status(200).render('gestion/project');
+        }
+        catch (err) {
+            console.log(err);
+        }
+    },
     async haveUser(req, res, next) {
         try {
             const result = await adminDataMapper.getUser();
-            console.log('i here');
             res.status(200).json(result);
         }
         catch (err) {
