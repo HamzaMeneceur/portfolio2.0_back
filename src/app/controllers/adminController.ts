@@ -1,7 +1,6 @@
 import adminDataMapper from "../dataMappers/adminDataMapper.js";
 import { NextFunction,Request,Response } from "express";
 import { encodePassword } from "../services/security.js";
-import errorHandler from "../services/error/errorHandler.js";
 import APIError from "../services/error/APIError.js";
 
 
