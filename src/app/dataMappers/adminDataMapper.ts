@@ -1,13 +1,13 @@
 import client from "../services/pg.js";
 export default {
-    async authUser(email: string, password: string){
+    async authUser(email: string){
         const sqlQuerry = `
                             SELECT * FROM "user"
-                            WHERE "email" = $1 AND "password" = $2;`;
-        const data = [email, password]
+                            WHERE "email" = $1;`;
+        const data = [email]
         const result= await client.query(sqlQuerry, data);
         console.log("i'm here")
-        return result.rows
+        return result.rows[0]
     },
     async ifUser(user: any){
         // Elle permet de vérifier l'existence d'un utilisateur en BDD.
