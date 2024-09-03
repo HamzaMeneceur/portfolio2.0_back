@@ -7,7 +7,7 @@ const adminRouter = Router();
 // router.get("/auth", limiter, adminController.authUser)
 adminRouter.get("/", adminController.renderSigninPage);
 adminRouter.get("/project", adminController.renderProject)
-adminRouter.post("/signin-post", bodyProtect, adminController.haveUser)
+adminRouter.post("/signin-post", bodyProtect, adminController.authUser)
 adminRouter.get("/signup", adminController.renderSignupPage);
 adminRouter.post("/signup-post", bodyProtect, verifyUser, adminController.signup);
 adminRouter.get("/privacypolicy", adminController.renderPrivacyPolicy);
