@@ -1,6 +1,7 @@
 import adminDataMapper from "../dataMappers/adminDataMapper.js";
 import { encodePassword, passwordMatch } from "../services/security.js";
 import APIError from "../services/error/APIError.js";
+import { encode } from "../services/jwt.js";
 export default {
     async renderPrivacyPolicy(req, res, next) {
         try {
@@ -49,7 +50,10 @@ export default {
             const passCheck = result.password;
             const user = await passwordMatch(password, passCheck);
             if (user) {
-                console.log('result => ' + result + 'user ' + user);
+                delete result.password;
+                const token = encode(result);
+                console.log(token);
+                console.log('result => ' + user);
             }
             else {
                 console.log(user);

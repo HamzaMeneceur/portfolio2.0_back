@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import APIError from './error/APIError';
+//import APIError from './error/APIError';
 const secret = process.env.TOKEN_SECRET;
 /**
  *
@@ -19,7 +19,7 @@ export function encode(create) {
 export function decode(token) {
     return jwt.verify(token, secret, function (err, decoded) {
         if (err) {
-            new APIError('invalid token', 500);
+            //new APIError('invalid token', 500)
         }
     });
 }
