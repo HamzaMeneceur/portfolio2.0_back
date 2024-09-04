@@ -3,11 +3,22 @@ import { decode } from './jwt.js';
 import { NextFunction,Request,Response } from "express";
 import APIError from './error/APIError.js';
 
+/**
+ * 
+ * @param password Besoin d'un mot de passe
+ * @returns Le mot de passe et encrypté
+ */
 export async function encodePassword(password:string) {
     const salt = process.env.BCRYPT_SALT
     return await bcrypt.hash(password, Number(salt));
 };
 
+/**
+ * 
+ * @param password Password saisie par l'utilisateur
+ * @param passwordHash Password en BDD
+ * @returns Boolean
+ */
 export async function passwordMatch(password: string, passwordHash: string) {
     return bcrypt.compare(password,passwordHash);
 };

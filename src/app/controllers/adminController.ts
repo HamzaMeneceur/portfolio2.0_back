@@ -11,7 +11,7 @@ export default {
             res.status(200).render('legal/privacyPolicy');
         }
         catch(err){
-            console.log(err)
+            new APIError('Une erreur interne et survenu dans le rendu de privacy policy', 500)
         }
     },
     async renderTermsOfUse(req: Request,res: Response,next: NextFunction){
@@ -19,15 +19,16 @@ export default {
             res.status(200).render('legal/termsOfUse');
         }
         catch(err){
-            console.log(err)
+            new APIError('Une erreur interne et survenu dans le rendu de terms of use', 500)
         }
     },
     async renderSigninPage(req:Request,res: Response,next: NextFunction){
         try{
-            res.status(200).render('adminAuth/signin')
+            const msg = req.session.error
+            res.status(200).render('adminAuth/signin', {msg})
         }
         catch(err){
-            console.log(err)
+            new APIError('Une erreur interne et survenu dans le rendu de signin', 500)
         }
     },
     async renderProject(req: Request,res: Response,next: NextFunction){
@@ -35,7 +36,7 @@ export default {
             res.status(200).render('gestion/project')
         }
         catch(err){
-            console.log(err)
+            new APIError('Une erreur interne et survenu dans le rendu de project', 500)
         }
     },
     async renderNotFound(req: Request,res: Response,next: NextFunction){
@@ -43,13 +44,20 @@ export default {
             res.status(404).send("404 not found")
         }
         catch(err){
-            console.log(err)
+            new APIError('Une erreur interne et survenu', 500)
         }
     },
     async authUser(req:Request,res: Response,next: NextFunction){
         try{
-            console.log(req.body, ' body')
             const {email, password} = req.body
+            if(!email) {
+                delete req.session.error
+                throw new Error(req.session.error = `Le champs email est pas remplit`)
+            }
+            if(!password) {
+                delete req.session.error
+                throw new Error(req.session.error = `Le champs password est pas remplit`)
+            }
             const result : any = await adminDataMapper.authUser(email)
             const passCheck = result.password;
             const user = await passwordMatch(password, passCheck)
@@ -63,11 +71,12 @@ export default {
                 res.status(200).redirect('/v1/admin/s/project')
             }
             else{
-                console.log(user)
+                delete req.session.error
+                throw new Error(req.session.error = `Les informations d'identification que vous avez fournies sont incorrectes. Veuillez vérifier votre adresse email et votre mot de passe, puis réessayer.`)
             }
         }
         catch(err){
-            console.log(err)
+            res.status(406).redirect('/v1/admin/s/')
         }
 
     },
@@ -100,9 +109,7 @@ export default {
             
     },
     async renderSignupPage(req:Request,res: Response,next: NextFunction){
-            let error;
                 const errorMessage = [req.session.error]
                 res.status(200).render('adminAuth/signup', {msg : errorMessage[0]})
-
     }
 }

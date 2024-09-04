@@ -17,6 +17,8 @@ header{
 main{
     grid-area: main;
     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 footer{
     grid-area: footer;

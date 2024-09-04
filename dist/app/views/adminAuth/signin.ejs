@@ -21,10 +21,12 @@
     </header>
 
 <main >
+
     <div id="form-content">
         <h2>Connecter Vous !</h2>
     
 <form action="/v1/admin/s/signin-post" method="post">
+
     <div class="ca-input">
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" placeholder="email@admin.com">
@@ -42,5 +44,12 @@
     </div>
 </form>
 </div>
+<%  if(msg) { %>
+    <div class="alert-msg">
+        <p>
+    <%= msg %>
+</p>
+</div>
+<% } %>
 </main>
 <%- include('../partials/footer') %>
