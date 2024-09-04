@@ -45,15 +45,19 @@ export default {
     },
     async authUser(req, res, next) {
         try {
+            console.log(req.body, ' body');
             const { email, password } = req.body;
             const result = await adminDataMapper.authUser(email);
             const passCheck = result.password;
             const user = await passwordMatch(password, passCheck);
             if (user) {
+                delete req.session.token;
                 delete result.password;
                 const token = encode(result);
                 console.log(token);
                 console.log('result => ' + user);
+                req.session.token = token;
+                res.status(200).redirect('/v1/admin/s/project');
             }
             else {
                 console.log(user);

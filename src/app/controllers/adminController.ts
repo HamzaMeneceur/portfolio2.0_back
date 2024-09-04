@@ -48,7 +48,8 @@ export default {
     },
     async authUser(req:Request,res: Response,next: NextFunction){
         try{
-            const {email, password} = req.body;
+            console.log(req.body, ' body')
+            const {email, password} = req.body
             const result : any = await adminDataMapper.authUser(email)
             const passCheck = result.password;
             const user = await passwordMatch(password, passCheck)
