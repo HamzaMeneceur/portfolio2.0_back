@@ -20,7 +20,7 @@ export function encode(create: string){
  */
 export function decode(token: string | undefined){
     if(typeof token === "string"){
-        return jwt.verify(token, secret, function(err, decoded?){
+        return jwt.verify(token, secret, function(err, decoded){
             if(err){
                 new APIError('invalid token', 500)
             }
