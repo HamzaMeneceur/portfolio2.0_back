@@ -39,12 +39,13 @@
     <input type="button" value="Mot de passe oublié ?" id="form-forget">
 
  </div>
+    <% if(!limitReached) {%>
     <div id="btn-submit">
         <input type="submit" value="Entrer" id="form-submit">
     </div>
-    
+    <% }%>
 </form>
-<%  if(msg) { %>
+<%  if(msg || limitReached) { %>
     <div class="alert-msg">
         <p>
     <%= msg %>

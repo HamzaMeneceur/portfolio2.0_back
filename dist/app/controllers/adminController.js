@@ -22,7 +22,7 @@ export default {
     async renderSigninPage(req, res, next) {
         try {
             const msg = req.session.error;
-            res.status(200).render('adminAuth/signin', { msg });
+            res.status(200).render('adminAuth/signin', { limitReached: false, msg });
         }
         catch (err) {
             new APIError('Une erreur interne et survenu dans le rendu de signin', 500);
