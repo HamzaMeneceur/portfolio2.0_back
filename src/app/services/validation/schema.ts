@@ -1,11 +1,10 @@
 import Joi from "joi";
 import type {user,project,social_network} from './schema.d'
-const emailRegExp = new RegExp('^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-const passwordRegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$');
+const passwordRegExp = new RegExp(/^[a-zA-Z0-9!?*_%]{8,12}$/);
 const validLinkRegExp = new RegExp('(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})');
 
 const adminSchema = Joi.object<user>({
-    email: Joi.string().email().pattern(emailRegExp).required(),
+    email: Joi.string().email().required(),
     password: Joi.string().pattern(passwordRegExp).required(),
     updated_at: Joi.date().optional()
 });

@@ -17,8 +17,7 @@ header{
 main{
     grid-area: main;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+
 }
 footer{
     grid-area: footer;
@@ -55,7 +54,7 @@ footer{
     margin: auto;
     background-color: rgba(249, 249, 249, 0.8);
     box-shadow: 10px 5px 5px rgba(19, 19, 19, 0.5);
-    width: 400px;
+    width: 450px;
     height: 300px;
     border-radius: 10px;
 }
@@ -96,9 +95,13 @@ footer{
 .alert-msg{
     padding: 10px;
     border-radius: 5px;
-    margin-bottom: 5px;
-    background-color: red;
+    margin-top: 5px;
+    background-color: rgb(252, 54, 54);
+    font-size: 0.7em;
     font-weight: 500;
+    text-align: center;
+    width: max-content;
+    max-width: 70%;
 }
 @media (max-width: 600px){
     #form-content{
@@ -109,6 +112,9 @@ footer{
     }
     #form-content label{
         font-size: 0.8em;
+    }
+    .alert-msg{
+        font-size: 8px;
     }
 }
 

@@ -22,15 +22,7 @@
         <div id="form-content">
             <h2>Créer votre compte administrateur</h2>
             <form action="/v1/admin/s/signup-post" method="post">
-                <div class="ca-input">
-                    <%  if(msg) { %>
-                            <div class="alert-msg">
-                                <p>
-                            <%= msg %>
-                        </p>
-                    </div>
-                        <% } %>
-                        
+                <div class="ca-input">  
                     <label for="email">Votre email</label>
                     <input type="email" name="email" id="email" placeholder="email@admin.com">
                 </div>
@@ -46,6 +38,13 @@
                     <input type="submit" value="Entrer" id="ca-submit">
                 </div>
             </form>
+            <%  if(msg) { %>
+                <div class="alert-msg">
+                    <p>
+                <%= msg %>
+            </p>
+        </div>
+            <% } %>
         </div>
     </main>
 
