@@ -22,7 +22,13 @@ export default {
     async renderSigninPage(req, res, next) {
         try {
             const msg = req.session.error;
-            res.status(200).render('adminAuth/signin', { limitReached: false, msg });
+            const now = Date.now();
+            if (req.session.limitReached && req.session.limitExpiration && req.session.limitExpiration > now) {
+                res.status(429).render('adminAuth/signin', { limitReached: true, msg: "Vous avez dépassé la limite d'essais. La connexion est bloqué temporairement." });
+            }
+            else {
+                res.status(200).render('adminAuth/signin', { limitReached: false, msg: undefined });
+            }
         }
         catch (err) {
             new APIError('Une erreur interne et survenu dans le rendu de signin', 500);
@@ -77,6 +83,8 @@ export default {
         }
     },
     async signup(req, res, next) {
+        req.session.limitReached = false;
+        req.session.limitExpiration = null;
         const error = {
             message: 'Le mot de passe ne correspond pas'
         };

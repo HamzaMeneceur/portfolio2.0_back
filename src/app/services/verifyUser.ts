@@ -5,6 +5,8 @@ declare module "express-session" {
     interface SessionData {
         error : string
         token : string
+        limitReached: boolean;
+        limitExpiration? : number | null;
     }
 }
 export async function verifyUser(req:Request,res: Response,next: NextFunction) {

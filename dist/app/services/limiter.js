@@ -5,6 +5,8 @@ export const limiter = rateLimit({
     standardHeaders: true,
     legacyHeaders: false,
     handler: function (req, res, next) {
-        res.status(429).render('adminAuth/signin', { limitReached: true, msg: "Vous avez dépassé la limite d'essais. Le formulaire est bloqué temporairement." });
+        req.session.limitReached = true;
+        req.session.limitExpiration = Date.now() + 15 * 60 * 1000;
+        res.status(429).render('adminAuth/signin', { limitReached: true, msg: "Vous avez dépassé la limite d'essais. La connexion est bloqué temporairement." });
     }
 });
