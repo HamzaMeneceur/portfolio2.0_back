@@ -10,9 +10,9 @@ const adminRouter = Router();
 // router.get("/auth", limiter, adminController.authUser)
 adminRouter.get("/", adminController.renderSigninPage);
 adminRouter.get("/project", isConnected ,adminController.renderProject)
-adminRouter.post("/signin-post", validate(adminSchema),bodyProtect, adminController.authUser)
+adminRouter.post("/signin-post", bodyProtect, adminController.authUser)
 adminRouter.get("/signup", adminController.renderSignupPage);
-adminRouter.post("/signup-post", bodyProtect, verifyUser, adminController.signup);
+adminRouter.post("/signup-post", validate(adminSchema), bodyProtect, verifyUser, adminController.signup);
 adminRouter.get("/privacypolicy", adminController.renderPrivacyPolicy);
 adminRouter.get("/termsofuse", adminController.renderTermsOfUse)
 export default adminRouter;

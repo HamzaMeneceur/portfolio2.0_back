@@ -10,17 +10,16 @@ export function validate(schema:Schema,dataKey?:string){
         
 
         if(error && error.error?.details) {
+            
             for(const a of error.error?.details){
-                console.log(a)
                 switch(a.context?.key){
                     case 'password':
-                        console.log('Le mot de passe doit contenir entre 8 et 12 caractères, avec au moins une majuscule.');
+                        req.session.error= 'Le mot de passe doit contenir entre 8 et 12 caractères, avec au moins une majuscule.';
                         break;
                     case 'email':
-                        console.log(`Le format de l'adresse email est incorrect, veuillez la ressaisir.`);
+                        req.session.error = `Le format de l'adresse email est incorrect, veuillez la ressaisir.`;
                         break;
                 }
-                
             }
         }
         next()

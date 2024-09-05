@@ -89,6 +89,9 @@ export default {
             req.session.error = error.message;
             res.status(406).redirect('/v1/admin/s/signup');
         }
+        else if (req.session.error) {
+            res.status(400).redirect("/v1/admin/s/signup");
+        }
         else if (user.password === user.confirm && user.email) {
             user.password = await encodePassword(user.password);
             const hashUser = user;
