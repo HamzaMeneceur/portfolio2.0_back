@@ -23,8 +23,10 @@ export async function passwordMatch(password, passwordHash) {
 export async function isConnected(req, res, next) {
     try {
         const tokenSession = decode(req.session.token);
-        if (tokenSession && typeof tokenSession === "object")
+        if (tokenSession && typeof tokenSession === "object") {
+            console.log(tokenSession.exp);
             next();
+        }
         else {
             res.status(401).redirect('/v1/admin/s/');
         }

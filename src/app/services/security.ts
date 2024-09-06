@@ -26,7 +26,13 @@ export async function passwordMatch(password: string, passwordHash: string) {
 export async function isConnected(req: Request,res: Response, next: NextFunction){
     try{
         const tokenSession: any = decode(req.session.token)
-        if(tokenSession && typeof tokenSession === "object") next()
+        if(tokenSession && typeof tokenSession === "object" && tokenSession.exp === 0){
+            delete req.session.token
+        }
+        if(tokenSession && typeof tokenSession === "object") {
+            console.log(tokenSession.exp)
+            next()
+        }
         else{
             res.status(401).redirect('/v1/admin/s/')
         }        
