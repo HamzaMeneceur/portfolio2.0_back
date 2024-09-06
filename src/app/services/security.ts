@@ -27,7 +27,7 @@ export async function isConnected(req: Request,res: Response, next: NextFunction
     try{
         const tokenSession: any = decode(req.session.token)
         // Condition de vérification de l'expiration du token
-        if(tokenSession && typeof tokenSession === "object" && tokenSession.exp === 0){
+        if(tokenSession && typeof tokenSession === "object" &&  Date.now() >= tokenSession.exp * 1000){
             delete req.session.token
         }
         if(tokenSession && typeof tokenSession === "object") {
