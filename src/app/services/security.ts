@@ -31,7 +31,6 @@ export async function isConnected(req: Request,res: Response, next: NextFunction
             delete req.session.token
         }
         if(tokenSession && typeof tokenSession === "object") {
-            console.log(tokenSession.exp)
             next()
         }
         // Pas de token renvoie vers la page de connexion

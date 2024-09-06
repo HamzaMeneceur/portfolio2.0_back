@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS "project","social_network","user";
 
 DROP TYPE IF EXISTS "top_enum";
 
-CREATE TYPE "top_enum" AS ENUM ('Solo', 'Professionnelle', 'Académique');
+CREATE TYPE "top_enum" AS ENUM ('Solo', 'Professionnelle', 'Academique');
 
 CREATE TABLE "user" (
     "email" TEXT PRIMARY KEY,

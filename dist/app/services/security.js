@@ -23,10 +23,14 @@ export async function passwordMatch(password, passwordHash) {
 export async function isConnected(req, res, next) {
     try {
         const tokenSession = decode(req.session.token);
+        // Condition de vérification de l'expiration du token
+        if (tokenSession && typeof tokenSession === "object" && Date.now() >= tokenSession.exp * 1000) {
+            delete req.session.token;
+        }
         if (tokenSession && typeof tokenSession === "object") {
-            console.log(tokenSession.exp);
             next();
         }
+        // Pas de token renvoie vers la page de connexion
         else {
             res.status(401).redirect('/v1/admin/s/');
         }

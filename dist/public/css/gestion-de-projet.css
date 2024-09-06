@@ -123,3 +123,15 @@ footer{
     background-color: rgb(88, 82, 82);
     box-shadow: 0 2px 4px rgba(26, 25, 25, 0.4);
 }
+
+/* Les modals pour intervenir dans la base de données*/
+
+#modal-add{
+    display: none;
+}
+#modal-update{
+    display: none;
+}
+#modal-delete{
+    display: none;
+}
