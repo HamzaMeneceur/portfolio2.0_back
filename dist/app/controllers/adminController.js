@@ -27,7 +27,7 @@ export default {
                 res.status(429).render('adminAuth/signin', { limitReached: true, msg: "Vous avez dépassé la limite d'essais. La connexion est bloqué temporairement." });
             }
             else {
-                res.status(200).render('adminAuth/signin', { limitReached: false, msg: undefined });
+                res.status(200).render('adminAuth/signin', { limitReached: false, msg });
             }
         }
         catch (err) {
