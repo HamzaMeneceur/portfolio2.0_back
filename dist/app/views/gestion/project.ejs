@@ -54,14 +54,14 @@
 
         <!-- modal add -->
          <div id="modal-add">
-            <form action="#" method="post">
+            <form action="/v1/admin/s/project/modal-add-post" method="post">
                 <div>
                     <label for="name">Nom du projet</label>
                     <input type="text" name="name" id="name">
                 </div>
                 <div>
-                    <label for="type_of_project">Quel est le type de projet ?</label>
-                    <select name="type_of_project" id="type-select">
+                    <label for="projectType">Quel est le type de projet ?</label>
+                    <select name="projectType" id="type-select">
                         <option value="">Liste de projets</option>
                         <option value="Solo">Réaliser seul</option>
                         <option value="Professionnel">Réaliser pour un client</option>

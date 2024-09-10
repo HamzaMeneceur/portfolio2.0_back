@@ -5,7 +5,7 @@ const project = {
     modalDelete: document.getElementById('modal-delete'),
     handleFormAdd(){
         project.allBtn[0].addEventListener('click', (event) =>{
-        if(project.modalAdd) project.modalAdd.style.display = (project.modalAdd.style.display === 'flex') ? 'none' : 'flex'
+        if(project.modalAdd) project.modalAdd.style.display = (project.modalAdd.style.display === 'block') ? 'none' : 'block'
         })
     },
     handleFormUpdate(){

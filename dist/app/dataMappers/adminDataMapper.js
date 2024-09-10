@@ -42,5 +42,29 @@ export default {
         catch (err) {
             return error = err;
         }
+    },
+    async selectAllProjectConnected(email) {
+        try {
+            const sqlQuerry = `
+                            SELECT * FROM 
+                            `;
+        }
+        catch (err) {
+            console.log(err);
+        }
+    },
+    async addProject(name, projectType, link, email) {
+        try {
+            const sqlQuerry = `
+                            INSERT INTO "project" ("name","type_of_project","link","user_email")
+                            VALUES ($1,$2,$3,$4);
+                            `;
+            const values = [name, projectType, link, email];
+            const result = await client.query(sqlQuerry, values);
+            console.log(result);
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
 };

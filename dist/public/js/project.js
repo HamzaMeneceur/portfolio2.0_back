@@ -7,7 +7,7 @@ const project = {
     handleFormAdd() {
         project.allBtn[0].addEventListener('click', (event) => {
             if (project.modalAdd)
-                project.modalAdd.style.display = (project.modalAdd.style.display === 'flex') ? 'none' : 'flex';
+                project.modalAdd.style.display = (project.modalAdd.style.display === 'block') ? 'none' : 'block';
         });
     },
     handleFormUpdate() {

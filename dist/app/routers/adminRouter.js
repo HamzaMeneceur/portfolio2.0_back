@@ -13,6 +13,7 @@ adminRouter.get("/project", isConnected, adminController.renderProject);
 adminRouter.post("/signin-post", limiter, bodyProtect, adminController.authUser);
 adminRouter.get("/signup", adminController.renderSignupPage);
 adminRouter.post("/signup-post", validate(adminSchema), bodyProtect, verifyUser, adminController.signup);
+adminRouter.post("/project/modal-add-post", isConnected, adminController.addProject);
 adminRouter.get("/privacypolicy", adminController.renderPrivacyPolicy);
 adminRouter.get("/termsofuse", adminController.renderTermsOfUse);
 export default adminRouter;

@@ -2,7 +2,7 @@ import adminDataMapper from "../dataMappers/adminDataMapper.js";
 import { NextFunction,Request,Response } from "express";
 import { encodePassword, passwordMatch } from "../services/security.js";
 import APIError from "../services/error/APIError.js";
-import { encode } from "../services/jwt.js";
+import { encode, decode } from "../services/jwt.js";
 
 
 export default {
@@ -119,6 +119,27 @@ export default {
             
                 
             
+    },
+    async addProject(req:Request, res: Response, next: NextFunction){
+        try {
+            let email: string | undefined
+            if(req.session.token){
+                const tokenUser :any = decode(req.session.token);
+                email = tokenUser.data.email
+            }
+            if(req.body && email){
+                const { name, projectType, link } = req.body
+                const result = await adminDataMapper.addProject(name,projectType,link,email)
+                res.status(201).render('gestion/project')
+            }
+            else{
+                // L'utilisateur est pas connecter retour à la page de connexion
+                res.status(406).redirect('/v1/admin/s')
+            }           
+        } catch (err) {
+            new APIError("Une erreur c'est produite", 500)
+        }
+ 
     },
     async renderSignupPage(req:Request,res: Response,next: NextFunction){
                 const errorMessage = [req.session.error]
