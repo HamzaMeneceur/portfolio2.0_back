@@ -8,10 +8,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf ./dist",
     "build": "npm run clean && tsc && npm run copy",
-    "copy": "cp -r src/app/views dist/app/ && cp -r src/public dist/",
+    "copy": "cp -r src/app/views dist/app/ && cp -r src/public dist/ && rm dist/public/js/*.ts",
     "dev": "DEBUG=error node index.js",
     "start:api": "node ./dist/app/apiServer.js",
     "start:admin": "npm run build && node ./dist/app/adminServer.js",
+    "start:test":"npm run build && nodemon --watch src --ext ts,js --exec 'npm run build && node ./dist/app/adminServer.js'",
     "start:all": "npm-run-all -p start:api start:admin"
   },
   "repository": {

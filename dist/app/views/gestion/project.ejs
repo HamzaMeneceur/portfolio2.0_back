@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
     <link href="/css/reset.css" rel="stylesheet">
     <link href="/css/gestion-de-projet.css" rel="stylesheet">
+    <script src="/js/project.js" defer></script>
     <title>Gestion des reseaux sociaux</title>
 </head>
 <body>
@@ -54,19 +55,59 @@
         <!-- modal add -->
          <div id="modal-add">
             <form action="#" method="post">
-
+                <div>
+                    <label for="name">Nom du projet</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <label for="type_of_project">Quel est le type de projet ?</label>
+                    <select name="type_of_project" id="type-select">
+                        <option value="">Liste de projets</option>
+                        <option value="Solo">Réaliser seul</option>
+                        <option value="Professionnel">Réaliser pour un client</option>
+                        <option value="Academique">En étude</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="link">Le lien associé</label>
+                    <input type="url" name="link" id="link" placeholder="https://example.com" pattern="https://.*" size="30">
+                </div>
+                <div>
+                    <input type="submit" value="Entrer" id="-form-add-submit">
+                </div>
             </form>
          </div>
         <!-- modal update -->
         <div id="modal-update">
             <form action="#" method="post">
-                
+                <div>
+                    <label for="name">Nom du projet</label>
+                    <input type="text" name="name" id="name">
+                </div>
+                <div>
+                    <label for="type_of_project">Quel est le type de projet ?</label>
+                    <select name="type_of_project" id="type-select">
+                        <option value="">Liste de projets</option>
+                        <option value="Solo">Réaliser seul</option>
+                        <option value="Professionnel">Réaliser pour un client</option>
+                        <option value="Academique">En étude</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="link">Le lien associé</label>
+                    <input type="url" name="link" id="link" placeholder="https://example.com" pattern="http://.*" size="30">
+                </div>
+                <div>
+                    <input type="submit" value="Entrer" id="-form-update-submit">
+                </div>              
             </form>
         </div>
         <!-- modal delete -->
         <div id="modal-delete">
             <form action="#" method="post">
-                
+                <div></div>
+                <div></div>
+                <div></div>
             </form>
         </div>
 
