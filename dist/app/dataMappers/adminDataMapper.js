@@ -45,9 +45,14 @@ export default {
     },
     async selectAllProjectConnected(email) {
         try {
+            let result;
             const sqlQuerry = `
-                            SELECT * FROM 
+                            SELECT * FROM project
+                            WHERE user_email = $1;
                             `;
+            const values = [email];
+            result = await client.query(sqlQuerry, values);
+            return result.rows;
         }
         catch (err) {
             console.log(err);

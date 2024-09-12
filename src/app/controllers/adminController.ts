@@ -40,7 +40,24 @@ export default {
     },
     async renderProject(req: Request,res: Response,next: NextFunction){
         try{
-            res.status(200).render('gestion/project')
+            console.log(req.query.projectSelected, 'Coucou')
+            let email: string | undefined
+            let result
+            let project
+            if(req.session.token){
+                const tokenUser :any = decode(req.session.token);
+                email = tokenUser.data.email
+            }
+            if(email){
+                result = await adminDataMapper.selectAllProjectConnected(email);
+                if(result){
+                    project = result.find((selected) => selected.id == req.query.projectSelected)
+                    console.log(project)
+                }
+            }
+            // Il faudrait tester la condition ou je n'ai pas de projets doit-je faire une condition dans ejs ? 
+
+                res.status(200).render('gestion/project', {projects: result, project})
         }
         catch(err){
             new APIError('Une erreur interne et survenu dans le rendu de project', 500)
@@ -130,7 +147,7 @@ export default {
             if(req.body && email){
                 const { name, projectType, link } = req.body
                 const result = await adminDataMapper.addProject(name,projectType,link,email)
-                res.status(201).render('gestion/project')
+                res.status(201).redirect('/v1/admin/s/project')
             }
             else{
                 // L'utilisateur est pas connecter retour à la page de connexion

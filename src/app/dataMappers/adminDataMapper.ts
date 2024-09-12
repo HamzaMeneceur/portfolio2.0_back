@@ -1,3 +1,4 @@
+import { QueryResult } from "pg";
 import client from "../services/pg.js";
 export default {
     async authUser(email: string){
@@ -45,10 +46,15 @@ export default {
     } ,
     async selectAllProjectConnected(email: string){
         try {
+            let result: QueryResult
             const sqlQuerry = 
                             `
-                            SELECT * FROM 
-                            `
+                            SELECT * FROM project
+                            WHERE user_email = $1;
+                            `;
+            const values = [email];
+            result = await client.query(sqlQuerry,values)
+            return result.rows
         } catch (err) {
             console.log(err)
         }

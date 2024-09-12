@@ -10,7 +10,11 @@
     <script src="/js/project.js" defer></script>
     <title>Gestion des reseaux sociaux</title>
 </head>
-<body>
+<% if(!project){ %>
+<body class="no-project">
+<% } else { %>
+    <body>
+      <% } %>
     <header>
         <div id="title-container-top">
             <div id="img-top">
@@ -26,12 +30,29 @@
             </nav>
         </div>
     </header>
+    <% if(project) { %>
     <aside>
         <div class="info-prj">
 <!--    Je veux afficher les information d'un élément
         Ciblée    -->
+        
+        <div class="project-selected">
+            <div class="selected-title">
+                <h1><%= project.name %></h1>
+            </div>
+            <div class="selected-link">
+                <a href="<%= project.link %>"><%= project.link %></a>
+            </div>
+            <div class="selected-info">
+                <p><%=project.project_date.toLocaleDateString("fr-FR") %></p>
+                <p><%= project.type_of_project %></p>
+    
+            </div>
+        </div>
+        
         </div>
     </aside>
+    <% } %>
     <main>
 <!--    J'utilise les information en fonction des éléménts
         Ciblée    
@@ -49,7 +70,10 @@
         </div>
 <!--    Liste dynamique de mes projets  -->
         <div class="list-prj">
-        <div class="prj-in">MeetDev</div>
+            <% if(projects) { %>
+                <% for(project of projects) { %>
+                    <a class="prj-in" href="http://localhost:3001/v1/admin/s/project?projectSelected=<%= project.id  %>"><p><%= project.name %></p></a>                
+                <% } } %>
         </div>
 
         <!-- modal add -->

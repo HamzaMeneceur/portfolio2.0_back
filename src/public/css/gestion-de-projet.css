@@ -12,11 +12,22 @@ body{
     "aside main"
     "footer footer";
 }
+.no-project{
+    grid-template-areas: 
+    "header header"
+    "main main"
+    "footer footer"
+    ;
+}
 header{
     grid-area: header;
 }
 aside{
     grid-area: aside;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: chocolate;
 }
 main{
     grid-area: main;
@@ -69,7 +80,17 @@ footer{
 }
 .info-prj{
     background-color: red;
+    height: 80%;
+    width: 80%;
+}
 
+.selected-title{
+text-align: center;
+font-size: 1rem;
+font-weight: 700;
+}
+.selected-info{
+text-align: center;
 }
 .list-prj{
     box-sizing: border-box;
