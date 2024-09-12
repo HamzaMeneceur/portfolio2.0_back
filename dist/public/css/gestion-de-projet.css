@@ -83,7 +83,12 @@ footer{
     height: 80%;
     width: 80%;
 }
-
+.project-selected{
+    background: whitesmoke;
+    height: 30%;
+    padding: 15px;
+    border-radius: 15px;
+}
 .selected-title{
 text-align: center;
 font-size: 1rem;

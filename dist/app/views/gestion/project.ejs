@@ -44,9 +44,9 @@
                 <a href="<%= project.link %>"><%= project.link %></a>
             </div>
             <div class="selected-info">
-                <p><%=project.project_date.toLocaleDateString("fr-FR") %></p>
-                <p><%= project.type_of_project %></p>
-    
+                <p>Le projet à été crée le <%=project.project_date.toLocaleDateString("fr-FR") %> 
+                    est a été réaliser : <span><%= project.type_of_project %>
+                </span></p>
             </div>
         </div>
         
