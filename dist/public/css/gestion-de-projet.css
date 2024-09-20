@@ -79,11 +79,14 @@ footer{
     margin-right: 10px;
 }
 .info-prj{
-    background-color: red;
     height: 80%;
     width: 80%;
 }
 .project-selected{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     background: whitesmoke;
     height: 30%;
     padding: 15px;
@@ -155,6 +158,9 @@ text-align: center;
 
 #modal-add{
     display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: blue;
     padding: 20px;
     border-radius: 15px;
